@@ -19,6 +19,9 @@ public class TestBase {
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("admin");
         driver.findElement(By.xpath("//button[@name='login']")).click();
     }
+    public void openStore() {
+        driver.get("https://litecart.stqa.ru/en/");
+    }
     public boolean areElementsPresent(By locator) {
         return driver.findElements(locator).size()>0;
     }
