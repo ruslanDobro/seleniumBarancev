@@ -14,7 +14,7 @@ public class AdminOptions extends TestBase {
     public void adminMenuList() {
         adminLogin();
         if (areElementsPresent(By.xpath("//*[@id='box-apps-menu']"))) {
-            int countTotalElements = 5;
+            int countTotalElements = 1;
             for (int i = 0; i < countTotalElements; i++) {
                 WebElement containerElement = driver.findElement(By.xpath("//*[@id='box-apps-menu']"));
                 countTotalElements = containerElement.findElements(By.xpath("//*[@id=\"app-\"]")).size();
