@@ -27,7 +27,6 @@ public class AdminOptions extends TestBase {
                     for( int j = 0; j < listElements; j++ ) {
                     WebElement hasElement = driver.findElement(By.xpath("//ul[@class='docs']"));
                         listElements = hasElement.findElements(By.tagName("span")).size();
-                        System.out.println(listElements);
                         hasElement.findElements(By.tagName("span")).get(j).click();
                         assertTrue(areElementsPresent(By.tagName("h1")));
                 }
