@@ -31,11 +31,6 @@ public class AdminOptions extends TestBase {
                         assertTrue(areElementsPresent(By.tagName("h1")));
                 }
                 }
-                try {
-                    sleep(600);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
