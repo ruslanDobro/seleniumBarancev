@@ -4,8 +4,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleContains;
@@ -16,20 +19,28 @@ public class MyFirstTest {
     private WebDriverWait wait;
     @Before
     public void start() {
+        if(driver != null){
+            wait = new WebDriverWait(driver, 10);
+            return;
+        }
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, 10);
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> { driver.quit(); driver = null; }));
     }
-    @After
-    public void stop() {
-        driver.quit();
-        driver =null;
-    }
+//    @After
+//    public void stop() {
+//        driver.quit();
+//        driver =null;
+//    }
 
     @Test
-    public void myFirstTest() {
+    public void myFirstTest() throws InterruptedException {
         driver.get("https://www.google.com/");
         driver.findElement(By.xpath("//*[@name=\"q\"]")).sendKeys("webdriver");
-        driver.findElement(By.xpath("//*[@value=\"Google Search\"]")).click();
+//        driver.findElement(By.xpath("//*[@name=\"q\"]")).sendKeys(Keys.RETURN);
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@value='Google Search']")));
+        driver.findElement(By.xpath("//*[@value='Google Search']")).click();
         wait.until(titleIs("webdriver - Google Search"));
     }
 
