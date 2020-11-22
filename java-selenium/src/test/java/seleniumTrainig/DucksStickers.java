@@ -12,8 +12,11 @@ public class DucksStickers extends TestBase {
         openStore();
         assertTrue(areElementsPresent(By.xpath("//*[@id='slider-wrapper']/..")));
         WebElement container = driver.findElement(By.xpath("//*[@id='slider-wrapper']/.."));
-        var listOfElements = container.findElements(By.xpath("//*[@class='image-wrapper']")).size();
-        var listOfStickers = container.findElements(By.xpath("//*[contains(@class,'sticker')]")).size();
-        assertEquals(listOfElements,listOfStickers);
+        var listOfElements = container.findElements(By.xpath("//*[@class='image-wrapper']"));
+        for (WebElement element:listOfElements) {
+            int expected =1;
+            int actual = element.findElements(By.cssSelector("[class*=sticker]")).size();
+            assertEquals(expected,actual);
+        }
     }
 }
