@@ -12,10 +12,10 @@ public class DucksStickers extends TestBase {
         openStore();
         assertTrue(areElementsPresent(By.xpath("//*[@id='slider-wrapper']/..")));
         WebElement container = driver.findElement(By.xpath("//*[@id='slider-wrapper']/.."));
-        var listOfElements = container.findElements(By.xpath("//*[@class='image-wrapper']"));
+        var listOfElements = container.findElements(By.cssSelector(".product"));
         for (WebElement element:listOfElements) {
-            int expected =1;
-            int actual = element.findElements(By.cssSelector("[class*=sticker]")).size();
+            int expected = 1;
+            int actual = element.findElements(By.cssSelector(".sticker")).size();
             assertEquals(expected,actual);
         }
     }
