@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestBase {
     public static WebDriver driver;
     public static WebDriverWait wait;
@@ -32,6 +34,8 @@ public class TestBase {
             return;
         }
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, 10);
         Runtime.getRuntime().addShutdownHook(
                 new Thread(() -> { driver.quit(); driver = null; }));
