@@ -24,7 +24,6 @@ public class CheckAlphabetOrder extends TestBase {
 
     @Test
     public void geoZones() {
-        //adminLogin();
         driver.findElement(By.xpath("//span[contains(text(),'Geo Zones')]")).click();
         checkGeoZones();
     }
