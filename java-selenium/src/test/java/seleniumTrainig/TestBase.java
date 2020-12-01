@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
 
+import static java.lang.Thread.sleep;
+
 public class TestBase {
     public static WebDriver driver;
     public static WebDriverWait wait;
@@ -26,6 +28,14 @@ public class TestBase {
     }
     public boolean areElementsPresent(By locator) {
         return driver.findElements(locator).size()>0;
+    }
+
+    public void isleep(int time) {
+        try {
+            sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     @Before
     public void start() {

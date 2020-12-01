@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.HashMap;
 import static java.lang.Thread.sleep;
 import static org.junit.Assert.assertTrue;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 public class UserRegistration extends TestBase {
     String email;
@@ -34,11 +35,7 @@ public class UserRegistration extends TestBase {
         driver.findElement(By.cssSelector("[name=login]")).click();
 
         /*logout*/
-        try {
-            sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        isleep(500);
         driver.findElement(By.xpath("//*[text() = \"Logout\"]")).click();
         assertTrue(driver.findElements(By.cssSelector("[name=login]")).size()>0);
     }
@@ -76,11 +73,7 @@ public class UserRegistration extends TestBase {
         driver.findElement(By.cssSelector("button[type=submit]")).click();
 
         /*logout*/
-        try {
-            sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        driver.findElement(By.xpath("//*[text() = \"Logout\"]")).click();
+        WebElement logout = wait.until(presenceOfElementLocated(By.xpath("//*[text() = \"Logout\"]")));
+        logout.click();
     }
 }
