@@ -19,11 +19,7 @@ public class UserRegistration extends TestBase {
     public void newUserRegistration() {
         openStore();
         driver.findElement(By.xpath("//a[contains(text(),'New customer')]")).click();
-        try {
-            sleep(400);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        isleep(300);
         registerNewUser();
         loginIntoAccount();
     }
