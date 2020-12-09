@@ -9,12 +9,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 //Setting and getting capabilities of the browser
 
 
 public class BrowserCapabilities {
     private WebDriver driver;
-
 
     @Before
     public void browserCapability() {
