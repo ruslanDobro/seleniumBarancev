@@ -25,6 +25,7 @@ public class RemoteStartDriver {
     WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.242:4444/wd/hub"), options);
 
     public RemoteStartDriver() throws MalformedURLException {
+
     }
 
 
