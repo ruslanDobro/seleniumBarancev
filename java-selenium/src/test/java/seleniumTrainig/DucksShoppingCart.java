@@ -6,8 +6,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
-import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
@@ -52,7 +50,7 @@ public class DucksShoppingCart extends TestBase {
     private void addItemToCart() {
         openStore();
         itemCounter = Integer.toString(counter);
-        driver.findElement(By.cssSelector("#box-most-popular li:nth-child(1)>a")).click();
+        driver.findElement(By.cssSelector("#box-most-popular li:nth-child(1)>a:not(.fancybox)")).click();
         if(areElementsPresent(By.cssSelector(".options"))) {
             Select selectSize = new Select(driver.findElement(By.cssSelector("select[required]")));
             selectSize.selectByIndex(1);
