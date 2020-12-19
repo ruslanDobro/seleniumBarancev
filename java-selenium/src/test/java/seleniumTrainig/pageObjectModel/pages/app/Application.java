@@ -8,9 +8,6 @@ import seleniumTrainig.pageObjectModel.pages.CartPage;
 import seleniumTrainig.pageObjectModel.pages.MainPage;
 import seleniumTrainig.pageObjectModel.pages.ProductPage;
 
-import static java.lang.Thread.sleep;
-
-
 public class Application {
 
     private WebDriver driver;
