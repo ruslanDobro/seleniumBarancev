@@ -4,7 +4,6 @@ import org.junit.Before;
 import seleniumTrainig.pageObjectModel.pages.app.Application;
 
 
-
 public class TestBase {
     public static ThreadLocal<Application> tlApp = new ThreadLocal<>();
     public Application app;

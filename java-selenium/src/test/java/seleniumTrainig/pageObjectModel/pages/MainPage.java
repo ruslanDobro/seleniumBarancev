@@ -1,6 +1,7 @@
 package seleniumTrainig.pageObjectModel.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class MainPage extends Page {
     private Locators locators = new Locators();
@@ -13,7 +14,7 @@ public class MainPage extends Page {
         driver.get(locators.homePage);
     }
     public void selectProduct() {
-        driver.findElement(locators.selectProduct).click();
+        wait.until(ExpectedConditions.elementToBeClickable((locators.selectProduct))).click();
 
     }
     public void clickHomeButton() {

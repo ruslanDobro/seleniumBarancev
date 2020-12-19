@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static org.junit.Assert.assertTrue;
 
 public class CartPage extends Page {
     private MainPage mainPage = new MainPage(driver);
@@ -40,13 +39,11 @@ public class CartPage extends Page {
         }
         clickEmptyCartBackButton();
         cartEmpty = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.numberOfProductsInCart));
-        //assertTrue(cartEmpty.getText().equals("0"));// TODO assert it in test class
-
     }
     public void clickEmptyCartBackButton(){
         driver.findElement(locators.emptyCartBackLink).click();
     }
-    public String getIsCartEmpty() {
+    public String getIsCartEmpty(){
         return cartEmpty.getText();
     }
 

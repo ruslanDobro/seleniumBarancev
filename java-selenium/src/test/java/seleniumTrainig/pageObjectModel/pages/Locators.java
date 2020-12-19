@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class Locators {
     String homePage = "https://litecart.stqa.ru/en/";
-    By selectProduct = By.cssSelector("#box-most-popular li:nth-child(1)>a");
+    By selectProduct = By.cssSelector("#box-most-popular li:nth-child(1)>a:not(.fancybox)");
     By selectSizeMenu = By.cssSelector(".options");
     By selectProductSize = By.cssSelector("select[required]");
     By addToCartButton = By.cssSelector("button[name=add_cart_product]");
